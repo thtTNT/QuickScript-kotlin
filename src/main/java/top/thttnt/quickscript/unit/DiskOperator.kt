@@ -1,12 +1,17 @@
-package top.thtTNT.quickscript.disk
+package top.thttnt.quickscript.unit
 
 import java.io.*
 
-/**
- * static method of io
- * io静态方法
- */
-object QSIO{
+object DiskOperator{
+
+    fun readResourceText(name : String): String {
+        val url = this.javaClass.getResource("/$name")
+        val br = BufferedReader(InputStreamReader(url.openStream()))
+        val content = br.readText()
+        br.close()
+        return content
+    }
+
 
     /**
      * read text from file
@@ -21,5 +26,5 @@ object QSIO{
         }
         return lines
     }
-
 }
+

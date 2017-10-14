@@ -1,4 +1,5 @@
 {
+  "command_cd_help":"cd [目录] 打开目录",
   "param_filename_not_exist":"请输入文件名",
   "command_unknown":"未知指令,请输入help来查看帮助",
   "unknown":"未知语言文件({id})"

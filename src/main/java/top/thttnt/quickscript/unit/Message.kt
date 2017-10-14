@@ -1,4 +1,4 @@
-package top.thtTNT.quickscript.Unit
+package top.thttnt.quickscript.unit
 
 import com.google.gson.JsonParser
 
@@ -14,10 +14,10 @@ object Message{
     }
 
     fun get(id : String): String {
-        if (messages.containsKey(id)){
-            return messages["id"]!!
+        return if (messages.containsKey(id)){
+            messages[id]!!
         }else{
-            return messages["unknown"]!!.replace("{id}",id)
+            messages["unknown"]!!.replace("{id}",id)
         }
     }
 }

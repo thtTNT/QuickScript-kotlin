@@ -1,22 +1,27 @@
-package top.thtTNT.quickscript.operator
+package top.thttnt.quickscript.operator
 
-import top.thtTNT.quickscript.Unit.Message
-import top.thtTNT.quickscript.command.CommandExecutor
+import top.thttnt.quickscript.unit.Message
+import top.thttnt.quickscript.command.CommandExecutor
+import top.thttnt.quickscript.console.Console
 
 object Resolution {
 
     private val executors = HashMap<String, CommandExecutor>()
 
-    fun deal(line: String) {
+    fun deal(console : Console, line: String) {
         var command = line
         while (command.contentEquals("  ")) {
             command = command.replace("  ", " ")
         }
         val args = command.split(" ")
         executors.filter { it.key.contentEquals(args[0]) }.forEach {
-            it.value.onCommand(args)
+            it.value.onCommand(console,args)
             return
         }
         println(Message.get("command_unknown"))
+    }
+
+    fun addExecutor(name : String, executor: CommandExecutor){
+        executors[name] = executor
     }
 }
