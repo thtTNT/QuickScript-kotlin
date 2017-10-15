@@ -7,7 +7,7 @@ import java.util.*
 class Console(private val mode : ConsoleMode){
 
     //work folder 工作目录
-    private val dir = File("")
+    var dir = File("")
 
     private fun execute(input : String){
         Resolution.deal(this,input)
